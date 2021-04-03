@@ -3,14 +3,10 @@
 mkdir -p /tmp/recovery
 cd /tmp/recovery
 apt install tmate -y
-apt install openssh -y
 apt install git -y
 git config --global user.name "Dazzler555"
 git config --global user.email "71560605+Dazzler555@users.noreply.github.com"
-sudo -E apt-get -qq update
-sudo -E apt-get -qq install bc build-essential zip curl libstdc++6 git wget python gcc clang libssl-dev repo rsync flex curl  bison aria2
-sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
-sudo chmod a+rx /usr/local/bin/repo
+
 tg(){
 	bot_api=1744981054:AAEwTewZaL8Z6K49crBWlfRnW3Zi9Aqim6U
 	your_telegram_id=$1 # No need to touch 
@@ -49,4 +45,3 @@ tg(){
 send_zip=$(up out/target/product/violet/*zip) && tg $id "Build Succeed!
 $send_zip
 
-sleep 4500
