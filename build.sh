@@ -35,5 +35,18 @@ cd out/target/product/violet
 curl -sL https://git.io/file-transfer | sh
 ./transfer wet *.zip
 ./transfer wet recovery.img
+up(){
+	curl --upload-file $1 https://transfer.sh/$(basename $1); echo
+	# 14 days, 10 GB limit
+}
+tg(){
+	bot_api=1744981054:AAEwTewZaL8Z6K49crBWlfRnW3Zi9Aqim6U # Your tg bot api, dont use my one haha, it's better to encrypt bot api too.
+	your_telegram_id=$1 # No need to touch 
+	msg=$2 # No need to touch
+	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}"
+}
+
+send_zip=$(up out/target/product/violet/*zip) && tg $id "Build Succeed!
+$send_zip
 
 sleep 4500
